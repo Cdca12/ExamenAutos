@@ -18,15 +18,12 @@
         titulo="Marca"
         placeholder="Ingrese la marca del auto"
         :maxlength="60"
-        :error="erroresValidacion && !validacionMarca"
-        mensajeError="Es necesario ingresar la marca del auto"
         class="mt-3"
       />
       <Input
         v-model="auto.Anio"
         id="Anio"
         titulo="Año"
-        tipo="number"
         placeholder="Ingrese el año del auto"
         :maxlength="4"
         :error="erroresValidacion && !validacionAnio"
@@ -39,8 +36,6 @@
         titulo="Color"
         placeholder="Ingrese el color del auto"
         :maxlength="20"
-        :error="erroresValidacion && !validacionColor"
-        mensajeError="Es necesario ingresar el color del auto"
         class="mt-3"
       />
       <b-button type="submit" class="mt-2" variant="primary">Agregar</b-button>
@@ -75,24 +70,12 @@ export default {
         this.auto.Modelo.trim() !== ""
       );
     },
-    validacionMarca() {
-        return (
-            this.auto.Marca !== undefined &&
-        this.auto.Marca.trim() !== ""
-      );
-        },
     validacionAnio() {
         return (
             this.auto.Anio !== undefined &&
         this.auto.Anio.trim() !== ""
       );
           },
-    validacionColor() {
-        return (
-            this.auto.Color !== undefined &&
-        this.auto.Color.trim() !== ""
-      );
-    },
   },
   methods: {
     ...mapActions(["agregarAuto"]),
@@ -100,9 +83,7 @@ export default {
       if (
         !(
           this.validacionModelo &&
-          this.validacionMarca &&
-          this.validacionAnio &&
-          this.validacionColor
+          this.validacionAnio
         )
       ) {
         this.erroresValidacion = true;
@@ -111,10 +92,10 @@ export default {
           this.erroresValidacion = false;
         this.agregarAuto({
           params: this.auto,
-          onComplete: (res) => {
+          onComplete: (response) => {
             this.$notify({
               type: "success",
-              title: res.data.mensaje,
+              title: response.data.mensaje,
             });
             this.$router.push({
               name: "Autos",
