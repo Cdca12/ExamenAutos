@@ -2,10 +2,9 @@ const express = require('express');
 
 const routes = express.Router();
 
-const { obtenerAutos } = require('../controllers/autosController');
+const { obtenerAutos, añadirAuto } = require('../controllers/autosController');
 
-
-routes.get('/', obtenerAutos);
-
+routes.get('/autos', obtenerAutos);
+routes.post('/autos', añadirAuto);
 
 module.exports = routes;
