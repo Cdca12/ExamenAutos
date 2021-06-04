@@ -10,6 +10,9 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
+// Base de Datos
+require('./config/connection');
+
 // Rutas
 app.get('/', (req, res) => {
     console.log("Hola mundo");
