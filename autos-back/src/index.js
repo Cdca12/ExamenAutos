@@ -14,10 +14,7 @@ app.use(express.json());
 require('./config/connection');
 
 // Rutas
-app.get('/', (req, res) => {
-    console.log("Hola mundo");
-    res.json({mensaje: "Mensaje de binvenida"})
-})
+app.use(require('./routes/autosRoutes'));
 
 // Levantar servidor
 app.listen(app.get('port'), (error => {
