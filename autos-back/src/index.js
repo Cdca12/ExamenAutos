@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors')
 
 // Inicializamos Express
 const app = express();
@@ -9,6 +10,7 @@ app.set('port', process.env.PORT || 3000);
 // Middleware
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
+app.use(cors());
 
 // Base de Datos
 require('./config/connection');
