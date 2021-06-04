@@ -14,7 +14,7 @@ obtenerAutos = (req, res) => {
     }
 }
 
-añadirAuto = (req, res) => {
+agregarAuto = (req, res) => {
     if(connection){
         const auto = req.body;
 
@@ -42,5 +42,5 @@ añadirAuto = (req, res) => {
 
 module.exports = {
     obtenerAutos,
-    añadirAuto
+    agregarAuto
 }

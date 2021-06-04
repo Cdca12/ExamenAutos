@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Autos from '../views/autos/Autos.vue'
+import AgregarAuto from '../views/autos/AgregarAuto.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/autos',
     name: 'Autos',
     component: Autos
+  },
+  {
+    path: '/autos/agregar',
+    name: 'AgregarAuto',
+    component: AgregarAuto
   },
 
 ]

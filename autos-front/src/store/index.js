@@ -19,6 +19,12 @@ export default new Vuex.Store({
         commit("SET_AUTOS", res.data);
       });
     },
+    agregarAuto({ commit }, { params, onComplete, onError }) {
+      axios
+        .post("http://localhost:3000/autos", params)
+        .then(onComplete)
+        .catch(onError);
+    },
   },
   modules: {},
 });

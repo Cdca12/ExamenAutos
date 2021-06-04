@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Autos</h1>
-    <!-- <b-button variant="dark" to="autos/agregar">Agregar auto</b-button> -->
+    <b-button variant="dark" to="/autos/agregar">Agregar auto</b-button>
     <Table :items="autos" :fields="fields" />
   </div>
 </template>
